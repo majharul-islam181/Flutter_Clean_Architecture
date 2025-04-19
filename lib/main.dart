@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_clean_architecture/features/auth/presentation/pages/singup.dart';
+import 'package:flutter_clean_architecture/service_locator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+      systemNavigationBarColor: Colors.black));
+  setupServiceLocator();
   runApp(const MyApp());
 }
 
@@ -15,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SignupPage(),
     );
   }
 }
